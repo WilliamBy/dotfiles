@@ -80,6 +80,7 @@ call plug#begin()
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+map <Leader> <Plug>(easymotion-prefix)
 Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
