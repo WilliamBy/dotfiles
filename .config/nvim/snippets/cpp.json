@@ -1,0 +1,33 @@
+{
+    "boot_pat": {
+        "prefix": "#pat",
+        "body": [
+            "#include<iostream>",
+            "#include<cstdio>",
+            "#include<cmath>",
+            "#include<algorithm>$1",
+            "using namespace std;",
+            "$2",
+            "int main() {",
+            "\t${3:/* code */}",
+            "\treturn 0;",
+            "}"
+        ],
+        "description": "PAT 答题模板"
+    },
+    "boot_io_cpp": {
+        "prefix": "io_boot",
+        "body": [
+            "std::ios::sync_with_stdio(false);",
+            "std::cin.tie(0);"
+        ]
+    },
+    "macro_debug": {
+        "prefix": "#debug",
+        "body": [
+            "#ifdef DEBUG",
+            "$1",
+            "#endif"
+        ]
+    }
+}
