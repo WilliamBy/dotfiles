@@ -23,13 +23,13 @@ keymap.set("n", "<C-l>", "<C-w>l")
 keymap.set("n", "<C-h>", "<C-w>h")
 
 -- 取消高亮
-keymap.set("n", "<leader>nh", ":nohl<CR>", { silent = true })
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "no highlight", silent = true, noremap = true })
 
 -- 切换buffer
-keymap.set("n", "<C-x>", ":bnext<CR>", { desc = "next buffer", silent = true })
-keymap.set("n", "<C-z>", ":bprevious<CR>", { desc = "prev buffer", silent = true })
+keymap.set("n", "<C-x>", ":bnext<CR>", { desc = "next buffer", silent = true, noremap = true })
+keymap.set("n", "<C-z>", ":bprevious<CR>", { desc = "prev buffer", silent = true, noremap = true })
 -- 保存buffer
-keymap.set("n", "<leader>bw", ":w<CR>", { desc = "save buffer", silent = true })
+keymap.set("n", "<leader>bw", ":w<CR>", { desc = "save buffer", silent = true, noremap = true })
 
 -- 导航
 keymap.set("n", "zk", "H", { desc = "viewport top", noremap = true })

@@ -12,10 +12,10 @@ require("noice").setup({
 			-- icon_hl_group: optional hl_group for the icon
 			-- title: set to anything or empty string to hide
 			cmdline = {
+				title = " VimCmd ",
 				pattern = "^:",
 				icon = "󰘳",
 				lang = "vim",
-				title = "",
 				view = "cmdline_popup",
 				opts = {
 					position = {
@@ -28,13 +28,16 @@ require("noice").setup({
 					},
 					border = {
 						style = "rounded",
-						highlight = "BufferCurrentHint",
+					},
+					win_options = {
+						winblend = 10,
+						winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
 					},
 				},
 				icon_hl_group = "BufferCurrentHint",
 			},
 			search_down = {
-				title = "",
+				title = " Search Down ",
 				kind = "search_down",
 				pattern = "^/",
 				icon = " ",
@@ -51,13 +54,16 @@ require("noice").setup({
 					},
 					border = {
 						style = "rounded",
-						highlight = "BufferCurrentWarn",
+					},
+					win_options = {
+						winblend = 10,
+						winhighlight = "Normal:BufferCurrentWarn,FloatBorder:BufferCurrentWarn",
 					},
 				},
 				icon_hl_group = "BufferCurrentWarn",
 			},
 			search_up = {
-				title = "",
+				title = " Search Up ",
 				kind = "search_up",
 				pattern = "^%?",
 				icon = " ",
@@ -76,11 +82,15 @@ require("noice").setup({
 						style = "rounded",
 						highlight = "BufferCurrentWarn",
 					},
+					win_options = {
+						winblend = 10,
+						winhighlight = "Normal:BufferCurrentWarn,FloatBorder:BufferCurrentWarn",
+					},
 				},
 				icon_hl_group = "BufferCurrentWarn",
 			},
 			filter = {
-				title = "",
+				title = " Filter ",
 				pattern = "^:%s*!",
 				icon = " ",
 				lang = "bash",
@@ -96,15 +106,43 @@ require("noice").setup({
 					},
 					border = {
 						style = "rounded",
-						highlight = "BufferCurrentHint",
+					},
+					win_options = {
+						winblend = 10,
+						winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
 					},
 				},
 				icon_hl_group = "BufferCurrentHint",
 			},
 			lua = {
+				title = " Lua ",
 				pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
 				icon = " ",
 				lang = "lua",
+				view = "cmdline_popup",
+				opts = {
+					position = {
+						row = "25%",
+						col = "50%",
+					},
+					size = {
+						width = "70%",
+						height = "auto",
+					},
+					border = {
+						style = "rounded",
+					},
+					win_options = {
+						winblend = 10,
+						winhighlight = "Normal:BufferCurrentTarget,FloatBorder:BufferCurrentTarget",
+					},
+				},
+				icon_hl_group = "BufferCurrentTarget",
+			},
+			help = {
+				title = " Help ",
+				pattern = "^:%s*he?l?p?%s+",
+				icon = "",
 				view = "cmdline_popup",
 				opts = {
 					position = {
@@ -121,11 +159,6 @@ require("noice").setup({
 					},
 				},
 				icon_hl_group = "BufferCurrentTarget",
-			},
-			help = {
-				pattern = "^:%s*he?l?p?%s+",
-				icon = "",
-				view = "cmdline",
 			},
 			input = {}, -- Used by input()
 			-- lua = false, -- to disable a format, set to `false`
@@ -153,7 +186,7 @@ require("noice").setup({
 	-- see the section on Command Redirection
 	---@type NoiceRouteConfig
 	redirect = {
-		view = "popup",
+		view = "cmdline_output",
 		filter = { event = "msg_show" },
 	},
 	-- You can add any custom commands below that will be available with `:Noice command`
@@ -309,6 +342,13 @@ require("noice").setup({
 				width = "70%",
 				height = "auto",
 			},
+			border = {
+				style = "rounded",
+			},
+			win_options = {
+				winblend = 10,
+				winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
+			},
 		},
 	}, ---@see section on views
 	---@type NoiceRouteConfig[]
@@ -318,20 +358,25 @@ require("noice").setup({
 			opts = { skip = true },
 		},
 		{
-			view = "messages", -- external command filter
-			filter = { cmdline = "^:%s*!" },
+			view = "mini",
+			filter = {
+				any = {
+					{ event = "msg_show", find = "written" },
+					{ event = "msg_show", find = "yanked" },
+					{ event = "msg_show", find = "fewer line" },
+					{ event = "msg_show", find = "more line" },
+				},
+			},
 		},
-        {
-            view = "mini",
-            filter = { event = "msg_show", max_width = 80, ["not"] = { kind = { "emsg", "wmsg" } } },
-        },
-		{
-			view = "popup",
-			filter = { event = "msg_show", kind = { "echo", "echomsg", "echoerr" } },
-		},
+		-- {
+		-- 	view = "messages", -- external command filter
+		-- 	filter = { cmdline = "^:%s*!" },
+		-- },
 	}, --- @see section on routes
 	---@type table<string, NoiceFilter>
 	status = {}, --- @see section on statusline components
 	---@type NoiceFormatOptions
 	format = {}, --- @see section on formatting
 })
+
+vim.keymap.set("n", "<leader>nl", { desc = "last noice" })
