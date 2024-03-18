@@ -379,4 +379,4 @@ require("noice").setup({
 	format = {}, --- @see section on formatting
 })
 
-vim.keymap.set("n", "<leader>nl", { desc = "last noice" })
+vim.keymap.set("n", "<leader>nl", "<cmd>Noice last<cr>", { silent = true, noremap = true, desc = "last noice" })
