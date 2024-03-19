@@ -14,13 +14,15 @@ require("mason").setup({
 
 -- 2. mason-lspconfig
 local lspconfig = require("lspconfig")
+-- 对每个lsp都要指定capabilities
+local capabilities = require("plugins.server.cmp").capabilities
 require("mason-lspconfig").setup({
 	ensure_installed = mason_ls.lsp,
 	automatic_installation = mason_ls.auto_install,
 	handlers = {
 		-- 自动配置
 		function(server_name) -- default handler (optional)
-			require("lspconfig")[server_name].setup({})
+			require("lspconfig")[server_name].setup({ capabilities = capabilities })
 		end,
 
 		-- 独立配置
@@ -33,7 +35,15 @@ require("mason-lspconfig").setup({
 		["lua_ls"] = function(server_name)
 			lspconfig[server_name].setup({
 				-- needed by neodev.nvim
+                capabilities = capabilities,
 				settings = { Lua = { completion = { callSnippet = "Replace" } } },
+			})
+		end,
+		["clangd"] = function(server_name)
+			lspconfig[server_name].setup({
+                capabilities = capabilities,
+                -- exclude proto file support
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 			})
 		end,
 	},
@@ -41,6 +51,7 @@ require("mason-lspconfig").setup({
 
 -- 3. nvim-lspconfig
 -- mason-lspconfig 已经接管了lsp配置，无需再用nvim-lspconfig重复配置
+-- 覆盖 mason-lspconfig 的自动配置
 
 -- 4. Lspsaga
 local saga = require("lspsaga")
@@ -176,7 +187,6 @@ trouble.setup({
 	},
 	use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 })
-vim.keymap.set("n", "<leader>we", "<cmd>Trouble<cr>", { desc = "Trouble window" })
 
 -- 6. actions-preview
 require("actions-preview").setup({
@@ -214,8 +224,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { silent = true, buffer = ev.buf }
-		vim.keymap.set("n", "<leader>wo", "<cmd>Lspsaga outline<CR>")
-		vim.keymap.set("n", "<leader>wr", "<cmd>Lspsaga finder ref+def<CR>")
+		vim.keymap.set("n", "<leader>wo", "<cmd>Lspsaga outline<CR>", opts)
+		vim.keymap.set("n", "<leader>wr", "<cmd>Lspsaga finder ref+def<CR>", opts)
 		vim.keymap.set("n", "gD", function()
 			trouble.open("lsp_declarations")
 		end, opts)

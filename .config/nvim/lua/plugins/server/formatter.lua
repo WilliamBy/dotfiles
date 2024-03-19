@@ -60,7 +60,11 @@ require("formatter").setup({
 		},
 		go = {
 			require("formatter.filetypes.go").gofumpt,
+			require("formatter.filetypes.go").golines,
 		},
+        markdown = {
+            require("formatter.filetypes.markdown").prettier,
+        },
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {

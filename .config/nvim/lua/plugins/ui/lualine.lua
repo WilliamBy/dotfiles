@@ -1,4 +1,4 @@
-local function my_winbar()
+local function symbol_bar()
 	local winbar = require("lspsaga.symbol.winbar").get_bar()
 	return winbar == nil and "" or winbar
 end
@@ -24,7 +24,12 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { "filename" },
+		lualine_c = {
+			"filename",
+			function()
+				return require("plugins.server.lint").lint_progress()
+			end,
+		},
 		lualine_x = {
 			"encoding",
 			function()
@@ -56,7 +61,7 @@ require("lualine").setup({
 	winbar = {
 		lualine_a = {
 			{
-				my_winbar,
+				symbol_bar,
 				separator = { right = "", left = "" },
 			},
 		},
@@ -66,6 +71,8 @@ require("lualine").setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	inactive_winbar = {},
+	inactive_winbar = {
+		lualine_a = {},
+	},
 	extensions = { "quickfix", "lazy", "nvim-tree", "nvim-dap-ui", "trouble", "toggleterm" },
 })

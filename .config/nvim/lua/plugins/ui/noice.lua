@@ -30,7 +30,7 @@ require("noice").setup({
 						style = "rounded",
 					},
 					win_options = {
-						winblend = 10,
+						winblend = 0,
 						winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
 					},
 				},
@@ -56,7 +56,7 @@ require("noice").setup({
 						style = "rounded",
 					},
 					win_options = {
-						winblend = 10,
+						winblend = 0,
 						winhighlight = "Normal:BufferCurrentWarn,FloatBorder:BufferCurrentWarn",
 					},
 				},
@@ -83,7 +83,7 @@ require("noice").setup({
 						highlight = "BufferCurrentWarn",
 					},
 					win_options = {
-						winblend = 10,
+						winblend = 0,
 						winhighlight = "Normal:BufferCurrentWarn,FloatBorder:BufferCurrentWarn",
 					},
 				},
@@ -108,7 +108,7 @@ require("noice").setup({
 						style = "rounded",
 					},
 					win_options = {
-						winblend = 10,
+						winblend = 0,
 						winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
 					},
 				},
@@ -133,7 +133,7 @@ require("noice").setup({
 						style = "rounded",
 					},
 					win_options = {
-						winblend = 10,
+						winblend = 0,
 						winhighlight = "Normal:BufferCurrentTarget,FloatBorder:BufferCurrentTarget",
 					},
 				},
@@ -346,7 +346,7 @@ require("noice").setup({
 				style = "rounded",
 			},
 			win_options = {
-				winblend = 10,
+				winblend = 0,
 				winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
 			},
 		},

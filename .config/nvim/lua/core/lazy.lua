@@ -16,7 +16,7 @@ local plugins = {
 	"folke/neodev.nvim", --为 nvim lua 插件提供lsp支持
 
 	-- UI
-    "MunifTanjim/nui.nvim", -- UI库
+	"MunifTanjim/nui.nvim", -- UI库
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -98,7 +98,7 @@ local plugins = {
 	"neovim/nvim-lspconfig", -- official lsp client config plugin
 	{
 		"williamboman/mason-lspconfig.nvim", -- 这个相当于mason.nvim和lspconfig的桥梁
-		dependencies = { { "williamboman/mason.nvim" } },
+		dependencies = { { "williamboman/mason.nvim", "neovim/nvim-lspconfig" } },
 	},
 	-- "mfussenegger/nvim-jdtls",
 	{
@@ -166,7 +166,7 @@ local plugins = {
 	},
 	{
 		"rcarriga/nvim-dap-ui",
-		dependencies = { { "mfussenegger/nvim-dap" } },
+		dependencies = { { "nvim-neotest/nvim-nio", "mfussenegger/nvim-dap" } },
 	},
 
 	{

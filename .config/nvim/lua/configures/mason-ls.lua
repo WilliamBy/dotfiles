@@ -7,20 +7,20 @@ local lsp = {
 	"spectral", -- json & yaml
 	"pylsp", -- python
 	"jdtls", -- java
-    "gopls", -- golang
-    -- "ltex", -- markdown latex (need java runtime)
-    "marksman",  -- markdown
+	"gopls", -- golang
+	-- "ltex", -- markdown latex (need java runtime)
+	"marksman", -- markdown
 }
 local dap = {
 	"codelldb",
-    "java-debug-adapter",
-    "delve",
-    "js-debug-adapter",
+	"java-debug-adapter",
+	"delve",
+	"js-debug-adapter",
 }
 local linter = {
 	"jsonlint",
 	"shellcheck",
-    "alex",
+	"alex",
 }
 local formatter = {
 	"clang-format",
@@ -28,9 +28,9 @@ local formatter = {
 	"stylua",
 	"prettier",
 	"pyment",
-    "xmlformatter",
-    "gofumpt",
-    "golines"
+	"xmlformatter",
+	"gofumpt",
+	"golines",
 }
 M.lsp = lsp
 M.dap = dap

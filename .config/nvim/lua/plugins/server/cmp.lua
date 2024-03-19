@@ -2,19 +2,9 @@
 local types = require("cmp.types")
 local str = require("cmp.utils.str")
 local neogen = require("neogen")
--- 1. 补丁：Add additional capabilities supported by nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-local lspconfig = require("lspconfig")
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = require("configures.mason-ls").lsp
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		-- on_attach = my_custom_on_attach,
-		capabilities = capabilities,
-	})
-end
+-- 1. 导出补丁：Add additional capabilities supported by nvim-cmp
+M = {}
+M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- 2. setup luasnip
 local snip_status_ok, luasnip = pcall(require, "luasnip")
@@ -152,3 +142,5 @@ cmp.setup.filetype("DressingInput", {
 		cmp.config.sources({ name = "path" }),
 	},
 })
+
+return M

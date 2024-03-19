@@ -1,5 +1,7 @@
+M = {}
 -- nvim-lint
 local mason_ls = require("configures.mason-ls")
+local lint = require("lint")
 -- 自动配置
 require("mason-nvim-lint").setup({
 	-- A list of linters to automatically install if they're not already installed. Example: { "eslint_d", "revive" }
@@ -18,12 +20,23 @@ require("mason-nvim-lint").setup({
 	quiet_mode = true,
 })
 -- 手动配置
-require('lint').linters_by_ft = {
-  markdown = {'alex',}
-}
+lint.linters_by_ft = {}
+
 -- autocmd 写入buffer后自动触发lint
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
 		require("lint").try_lint()
 	end,
 })
+vim.keymap.set("n", "<leader>bl", lint.try_lint, { desc = "buffer lint" })
+
+-- Get the current running linters for your buffer
+M.lint_progress = function()
+	local linters = require("lint").get_running()
+	if #linters == 0 then
+		return "󰦕"
+	end
+	return "󱉶 " .. table.concat(linters, ", ")
+end
+
+return M
