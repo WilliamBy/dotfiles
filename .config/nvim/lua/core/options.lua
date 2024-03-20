@@ -11,8 +11,12 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
--- 防止包裹
-opt.wrap = false
+-- 折行相关
+opt.wrap = true
+opt.wrapmargin = 2
+opt.linebreak = true
+opt.breakindent = true
+opt.showbreak = '> '
 
 -- 光标行
 opt.cursorline = true

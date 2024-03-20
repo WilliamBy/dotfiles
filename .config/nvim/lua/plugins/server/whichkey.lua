@@ -43,9 +43,7 @@ wk.setup({
 	},
 	window = {
 		border = "none", -- none, single, double, shadow
-		position = function() -- dynamic position (not working however)
-			return require("core.utils").curor_lower_win() and "top" or "bottom"
-		end, -- bottom, top
+		position = "bottom",
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
 		padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
 		winblend = 0, -- value between 0-100 0 for fully opaque and 100 for fully transparent
