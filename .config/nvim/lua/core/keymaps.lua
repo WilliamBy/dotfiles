@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+local utils = require("core.utils")
+
 -- ---------- 插入模式 ---------- ---
 keymap.set("i", "jk", "<ESC>")
 keymap.set("i", "<C-S>", "<ESC>:w<CR>", { silent = true })
@@ -34,5 +36,8 @@ keymap.set("n", "<leader>bw", ":w<CR>", { desc = "save buffer", silent = true, n
 -- 导航
 keymap.set("n", "zk", "H", { desc = "viewport top", noremap = true })
 keymap.set("n", "zj", "L", { desc = "viewport bottom", noremap = true })
-keymap.set("n", "H", "0", { desc = "line head", noremap = true })
-keymap.set("n", "L", "$", { desc = "line tail", noremap = true })
+keymap.set({ "n", "v" }, "H", "0", { desc = "line head", noremap = true })
+keymap.set({ "n", "v" }, "L", "$", { desc = "line tail", noremap = true })
+
+-- diagnostic 相关
+keymap.set("n", "<leader>bd", utils.toggle_diagnostic, utils.opts("toggle diagnostic"))

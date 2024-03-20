@@ -8,8 +8,8 @@ local lsp = {
 	"pylsp", -- python
 	"jdtls", -- java
 	"gopls", -- golang
-	-- "ltex", -- markdown latex (need java runtime)
 	"marksman", -- markdown
+    "denols", -- deno (js, ts, json...)
 }
 local dap = {
 	"codelldb",
@@ -21,6 +21,7 @@ local linter = {
 	"jsonlint",
 	"shellcheck",
 	"alex",
+    "eslint_d",
 }
 local formatter = {
 	"clang-format",

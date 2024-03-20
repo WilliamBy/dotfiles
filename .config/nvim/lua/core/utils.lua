@@ -1,12 +1,14 @@
 -- 工具 api
 M = {
-	-- 判断指针是否在当前窗口的下半边
+	--- 判断指针是否在当前窗口的下半边
+	---@return boolean
 	curor_lower_win = function()
 		local top = vim.fn.line("w0", 0)
 		local h = vim.api.nvim_win_get_height(0)
 		local cur = vim.api.nvim_win_get_cursor(0)
 		return (cur[1] - top) > (h / 2)
 	end,
+
 	-- 同步输入框 vim.ui.input() sync version
 	sync_ui_input = function(prompt, default, completion)
 		local file_path
@@ -16,6 +18,22 @@ M = {
 		end)
 		file_path = coroutine.yield()
 		return (file_path == nil) and nil or file_path
+	end,
+
+	--- 生成vim.keymap opts 选项
+	---@param descripton string 描述
+	opts = function(descripton)
+		return { desc = descripton, silent = true, noremap = true }
+	end,
+
+	--- 触发诊断
+	---@param bufrn integer buffer order
+	toggle_diagnostic = function(bufrn)
+		if vim.diagnostic.is_disabled(bufrn) then
+			vim.diagnostic.enable(bufrn)
+		else
+			vim.diagnostic.disable(bufrn)
+		end
 	end,
 }
 

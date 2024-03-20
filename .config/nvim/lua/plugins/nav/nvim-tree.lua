@@ -129,11 +129,11 @@ end
 require("nvim-tree").setup({
 	sync_root_with_cwd = true,
 	-- respect_buf_cwd = true,
-	-- update_focused_file = {
-	-- 	enable = true,
-	-- 	update_root = true,
-	-- },
-	root_dirs = { ".mvn", ".root", ".git", ".project", ".svn" },
+	update_focused_file = {
+		enable = true,
+		update_root = true,
+	},
+	root_dirs = require("configures.general").root_ls,
 	modified = {
 		enable = true,
 		show_on_dirs = true,
