@@ -40,4 +40,6 @@ keymap.set({ "n", "v" }, "H", "0", { desc = "line head", noremap = true })
 keymap.set({ "n", "v" }, "L", "$", { desc = "line tail", noremap = true })
 
 -- diagnostic 相关
-keymap.set("n", "<leader>bd", utils.toggle_diagnostic, utils.opts("toggle diagnostic"))
+keymap.set("n", "<leader>bd", function()
+	utils.toggle_diagnostic(0)
+end, utils.opts("toggle diagnostic"))

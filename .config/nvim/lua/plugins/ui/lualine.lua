@@ -26,6 +26,9 @@ require("lualine").setup({
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = {
 			"filename",
+            function ()
+                return vim.diagnostic.is_disabled(0) and "󰛑" or ""
+            end,
 			function()
 				return require("plugins.server.lint").lint_progress()
 			end,

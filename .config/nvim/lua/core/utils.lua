@@ -27,12 +27,12 @@ M = {
 	end,
 
 	--- 触发诊断
-	---@param bufrn integer buffer order
+	---@param bufrn integer buffer order: 0 for current buffer, nil for all buffers
 	toggle_diagnostic = function(bufrn)
-		if vim.diagnostic.is_disabled(bufrn) then
-			vim.diagnostic.enable(bufrn)
+		if vim.diagnostic.is_disabled(bufrn, nil) then
+			vim.diagnostic.enable(bufrn, nil)
 		else
-			vim.diagnostic.disable(bufrn)
+			vim.diagnostic.disable(bufrn, nil)
 		end
 	end,
 }

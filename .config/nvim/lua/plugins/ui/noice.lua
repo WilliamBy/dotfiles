@@ -365,6 +365,8 @@ require("noice").setup({
 					{ event = "msg_show", find = "yanked" },
 					{ event = "msg_show", find = "fewer line" },
 					{ event = "msg_show", find = "more line" },
+					{ event = "msg_show", find = "lines moved" },
+					{ event = "msg_show", find = "lines indented" },
 				},
 			},
 		},

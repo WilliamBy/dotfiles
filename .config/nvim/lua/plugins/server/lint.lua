@@ -34,7 +34,8 @@ vim.keymap.set("n", "<leader>bl", lint.try_lint, { desc = "buffer lint" })
 M.lint_progress = function()
 	local linters = require("lint").get_running()
 	if #linters == 0 then
-		return "󰦕"
+		-- return "󰦕"
+        return ""
 	end
 	return "󱉶 " .. table.concat(linters, ", ")
 end
