@@ -30,3 +30,10 @@ source /home/w1_liamby/.config/broot/launcher/bash/br
 
 # append go bin path
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/go/bin
+
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
+# zoxide feature
+source /home/w1_liamby/.bashrc.d/zoxide.bashrc
