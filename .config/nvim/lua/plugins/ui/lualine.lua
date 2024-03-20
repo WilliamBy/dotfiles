@@ -20,18 +20,27 @@ require("lualine").setup({
 			tabline = 1000,
 			winbar = 1000,
 		},
+		padding = 1,
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = {
+			{ "branch", separator = "" },
+			{ "diff", padding = { left = 0, right = 1 }, separator = "" },
+		},
 		lualine_c = {
-			"filename",
-            function ()
-                return vim.diagnostic.is_disabled(0) and "󰛑" or ""
-            end,
-			function()
-				return require("plugins.server.lint").lint_progress()
-			end,
+			{ "filename" },
+			{ "diagnostics" },
+			{
+				function()
+					return vim.diagnostic.is_disabled(0) and "󰛑" or ""
+				end,
+			},
+			{
+				function()
+					return require("plugins.server.lint").lint_progress()
+				end,
+			},
 		},
 		lualine_x = {
 			"encoding",
