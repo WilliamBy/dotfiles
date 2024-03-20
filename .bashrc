@@ -13,7 +13,7 @@ PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 
 # Set default editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # Using vim mode for command line edit
 set -o vi
