@@ -51,8 +51,8 @@ exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # Autostart polybar
 exec polybar mybar
-# picom as composite manager (however it seems incompatible with electron app)
-# exec picom -b
+# picom as composite manager 
+exec picom -b
 # Autostart other applications but don't start up a window
 exec_always --no-startup-id feh --no-fehbg --bg-scale /home/w1_liamby/Pictures/wallhaven-4xo6dz.png &
 exec --no-startup-id utools
