@@ -226,6 +226,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { silent = true, buffer = ev.buf }
 		vim.keymap.set("n", "<leader>wo", "<cmd>Lspsaga outline<CR>", opts)
 		vim.keymap.set("n", "<leader>wr", "<cmd>Lspsaga finder ref+def<CR>", opts)
+		vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_workspace_symbols<CR>", opts)
 		vim.keymap.set("n", "gD", function()
 			trouble.open("lsp_declarations")
 		end, opts)

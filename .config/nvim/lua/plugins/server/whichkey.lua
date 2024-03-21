@@ -108,6 +108,7 @@ wk.register({
 		f = "files",
 		g = "live_grep",
 		o = "treesitter",
+        s = "symbol",
 		n = "notifictions",
 		h = "helps",
 		b = "buffers",
@@ -132,7 +133,9 @@ wk.register({
 		name = "buffer",
 		f = "format",
 		w = "write",
+        l = "lint",
 		q = "quit",
+        d = "toggle diagnostics",
 	},
 
     d = {
@@ -150,6 +153,7 @@ wk.register({
         name = "no",
         n = "notify",
         h = "highlight",
+        d = "diagnostics",
     },
 
     r = {
