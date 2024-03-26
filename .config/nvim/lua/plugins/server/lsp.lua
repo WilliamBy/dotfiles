@@ -56,6 +56,11 @@ require("mason-lspconfig").setup({
 -- 4. Lspsaga
 local saga = require("lspsaga")
 saga.setup({
+	finder = {
+		methods = {
+			tyd = "textDocument/typeDefinition",
+		},
+	},
 	ui = {
 		code_action = "󱠂",
 	},
