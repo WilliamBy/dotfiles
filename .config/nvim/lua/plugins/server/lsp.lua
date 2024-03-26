@@ -35,14 +35,14 @@ require("mason-lspconfig").setup({
 		["lua_ls"] = function(server_name)
 			lspconfig[server_name].setup({
 				-- needed by neodev.nvim
-                capabilities = capabilities,
+				capabilities = capabilities,
 				settings = { Lua = { completion = { callSnippet = "Replace" } } },
 			})
 		end,
 		["clangd"] = function(server_name)
 			lspconfig[server_name].setup({
-                capabilities = capabilities,
-                -- exclude proto file support
+				capabilities = capabilities,
+				-- exclude proto file support
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 			})
 		end,
@@ -123,10 +123,10 @@ require("lsp_signature").setup({
 	shadow_blend = 36, -- if you using shadow as border use this set the opacity
 	shadow_guibg = "Black", -- if you using shadow as border use this set the color e.g. 'Green' or '#121315'
 	timer_interval = 200, -- default timer check interval set to lower value if you want to reduce latency
-	toggle_key = "<C-S-k>", -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+	toggle_key = "<C-k>", -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
 	toggle_key_flip_floatwin_setting = false, -- true: toggle float setting after toggle key pressed
 
-	select_signature_key = "gk", -- cycle to next signature, e.g. '<M-n>' function overloading
+	select_signature_key = "<C-S-K>", -- cycle to next signature, e.g. '<M-n>' function overloading
 	move_cursor_key = nil, -- imap, use nvim_set_current_win to move cursor between current win and floating
 })
 
@@ -226,20 +226,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { silent = true, buffer = ev.buf }
 		vim.keymap.set("n", "<leader>wo", "<cmd>Lspsaga outline<CR>", opts)
 		vim.keymap.set("n", "<leader>wr", "<cmd>Lspsaga finder ref+def<CR>", opts)
-		vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_workspace_symbols<CR>", opts)
-		vim.keymap.set("n", "gD", function()
-			trouble.open("lsp_declarations")
-		end, opts)
+		vim.keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
+		vim.keymap.set("n", "gD", "<cmd>Lspsaga finder tyd<cr>", opts)
 		vim.keymap.set("n", "gd", "<cmd>Lspsaga finder def<CR>", opts)
-		-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 		vim.keymap.set("n", "gi", "<cmd>Lspsaga finder imp<CR>", opts)
 		vim.keymap.set({ "n", "i", "v" }, "<C-k>", require("lsp_signature").toggle_float_win, opts)
-		vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+		vim.keymap.set("n", "<leader>D", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", opts)
-		-- vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 		vim.keymap.set({ "n", "v" }, "<leader>ca", require("actions-preview").code_actions, opts) -- nvim-code-action-menu.nvim
-		-- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 		vim.keymap.set("n", "gr", "<cmd>Lspsaga finder ref<CR>", opts)
 		vim.keymap.set("n", "<leader>ee", function()
 			trouble.open()

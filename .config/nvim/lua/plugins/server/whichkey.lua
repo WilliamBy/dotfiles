@@ -158,14 +158,15 @@ wk.register({
 
     r = {
         n = "rename"
-    }
+    },
+
+    D = "declaration",
 }, { prefix = "<leader>" })
 
 wk.register({
 	name = "goto",
-    D = "declaration",
+    D = "type_definitions",
     d = "definition",
     r = "lsp_references",
     i = "impelement",
-    k = "next signature"
 }, { prefix = "g" })
