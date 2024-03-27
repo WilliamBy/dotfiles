@@ -137,12 +137,22 @@ local plugins = {
 		dependencies = {
 			{
 				"onsails/lspkind.nvim",
+                "hrsh7th/cmp-nvim-lsp", -- cmp & lsp 桥梁
+                {
+                    "L3MON4D3/LuaSnip",
+                    -- follow latest release.
+                    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+                    -- install jsregexp (optional!).
+                    build = "make install_jsregexp",
+                },
 				"hrsh7th/cmp-path", -- 补全源：路径
 				"hrsh7th/cmp-cmdline", -- 补全源：命令行
-				"hrsh7th/cmp-nvim-lsp", -- cmp & lsp 桥梁
 				{
-					"L3MON4D3/LuaSnip", -- snippets引擎，nvim-cmp依赖
-					dependencies = { { "rafamadriz/friendly-snippets" } },
+					"paopaol/cmp-doxygen",
+					dependencies = {
+						"nvim-treesitter/nvim-treesitter",
+						"nvim-treesitter/nvim-treesitter-textobjects",
+					},
 				},
 				"saadparwaiz1/cmp_luasnip", -- luasnip & cmp 桥梁
 			},
@@ -164,6 +174,15 @@ local plugins = {
 		end,
 	},
 	"phaazon/hop.nvim", -- nvim easy motion
+	{
+		"okuuva/auto-save.nvim",
+		cmd = "ASToggle", -- optional for lazy loading on command
+		event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+		opts = {
+			-- your config goes here
+			-- or just leave it empty :)
+		},
+	},
 
 	-- DAP
 	{

@@ -100,7 +100,7 @@ wk.register({
 		r = { "lsp_references" },
 		q = { "quickfixs" },
 		f = { "float diagnostics" },
-        t = { "todo list" }
+		t = { "todo list" },
 	},
 
 	f = {
@@ -108,12 +108,12 @@ wk.register({
 		f = "files",
 		g = "live_grep",
 		o = "treesitter",
-        s = "symbol",
+		s = "symbol",
 		n = "notifictions",
 		h = "helps",
 		b = "buffers",
-        p = "projects",
-        r = "recent file",
+		p = "projects",
+		r = "recent file",
 	},
 
 	w = {
@@ -122,9 +122,9 @@ wk.register({
 		h = "split horizontal",
 		v = "split vertical",
 		o = "outline",
-        g = "lazygit",
-        r = "ref+def+imp",
-        e = "Trouble"
+		g = "lazygit",
+		r = "ref+def+imp",
+		e = "Trouble",
 	},
 
 	s = "hop",
@@ -133,40 +133,45 @@ wk.register({
 		name = "buffer",
 		f = "format",
 		w = "write",
-        l = "lint",
+		l = "lint",
 		q = "quit",
-        d = "toggle diagnostics",
+		d = "toggle diagnostics",
 	},
 
-    d = {
-        name = "dap",
-        b = "toggle breakpoint",
-        r = "open repl",
-        l = "run last",
-        h = "hover",
-        p = "preview",
-        f = "frames",
-        s = "scopes",
-    },
+	d = {
+		name = "dap",
+		b = "toggle breakpoint",
+		r = "open repl",
+		l = "run last",
+		h = "hover",
+		p = "preview",
+		f = "frames",
+		s = "scopes",
+	},
 
-    n = {
-        name = "no",
-        n = "notify",
-        h = "highlight",
-        d = "diagnostics",
-    },
+	n = {
+		name = "no",
+		n = "notify",
+		h = "highlight",
+		d = "diagnostics",
+	},
 
-    r = {
-        n = "rename"
-    },
+	r = {
+		n = "rename",
+	},
 
-    D = "declaration",
+	g = {
+		name = "generate/insert",
+		c = { "comments" },
+	},
+
+	D = "declaration",
 }, { prefix = "<leader>" })
 
 wk.register({
 	name = "goto",
-    D = "type_definitions",
-    d = "definition",
-    r = "lsp_references",
-    i = "impelement",
+	D = "type_definitions",
+	d = "definition",
+	r = "lsp_references",
+	i = "impelement",
 }, { prefix = "g" })

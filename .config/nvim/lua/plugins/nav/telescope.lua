@@ -1,5 +1,8 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
+local action_state = require("telescope.actions.state")
+local actions = require("telescope.actions")
+local utils = require("core.utils")
 -- extensions
 telescope.load_extension("fzf") -- 使用 fzf 模糊搜索
 telescope.extensions.asynctasks.all()
@@ -21,6 +24,18 @@ telescope.setup({
 		selection_caret = "  ",
 		entry_prefix = "  ",
 	},
+	pickers = {
+		buffers = {
+			mappings = {
+				i = {
+					["<C-d>"] = { actions.delete_buffer, type = "action", utils.opts("delete_buffer") },
+				},
+				n = {
+					["d"] = { actions.delete_buffer, type = "action", utils.opts("delete_buffer") },
+				},
+			},
+		},
+	},
 	extensions = {
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
@@ -40,6 +55,9 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers)
 vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 vim.keymap.set("n", "<leader>fo", builtin.treesitter)
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
+vim.keymap.set("n", "<leader>fc", function()
+	builtin.git_bcommits({ git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." } })
+end)
 vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", { silent = true }) -- 依赖nvim.notify
 vim.keymap.set("n", "<leader>fp", "<cmd>Telescope projects<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fa", "<cmd>Telescope asynctasks all<CR>", { silent = true })

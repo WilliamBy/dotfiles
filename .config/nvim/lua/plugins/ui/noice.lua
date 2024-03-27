@@ -40,7 +40,7 @@ require("noice").setup({
 				title = " Search Down ",
 				kind = "search_down",
 				pattern = "^/",
-				icon = " ",
+				icon = "󰱼",
 				lang = "regex",
 				view = "cmdline_popup",
 				opts = {
@@ -66,7 +66,7 @@ require("noice").setup({
 				title = " Search Up ",
 				kind = "search_up",
 				pattern = "^%?",
-				icon = " ",
+				icon = "󰱼",
 				lang = "regex",
 				view = "cmdline_popup",
 				opts = {
@@ -253,11 +253,11 @@ require("noice").setup({
 		},
 		override = {
 			-- override the default lsp markdown formatter with Noice
-			["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 			-- override the lsp markdown formatter with Noice
-			["vim.lsp.util.stylize_markdown"] = false,
+			["vim.lsp.util.stylize_markdown"] = true,
 			-- override cmp documentation with Noice (needs the other options to work)
-			["cmp.entry.get_documentation"] = false,
+			["cmp.entry.get_documentation"] = true,
 		},
 		hover = {
 			enabled = true,
@@ -279,12 +279,10 @@ require("noice").setup({
 			opts = {}, -- merged with defaults from documentation
 		},
 		message = {
-			-- Messages shown by lsp servers
 			enabled = true,
 			view = "notify",
 			opts = {},
 		},
-		-- defaults for hover and signature help
 		documentation = {
 			view = "hover",
 			---@type NoiceViewOptions
@@ -368,6 +366,7 @@ require("noice").setup({
 					{ event = "msg_show", find = "lines moved" },
 					{ event = "msg_show", find = "lines indented" },
 					{ event = "msg_show", find = "Hop " },
+					{ event = "msg_show", find = "AutoSave" },
 				},
 			},
 		},

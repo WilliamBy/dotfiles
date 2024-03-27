@@ -8,6 +8,8 @@ local utils = require("core.utils")
 keymap.set("i", "jk", "<ESC>")
 keymap.set("i", "<C-S>", "<ESC>:w<CR>", { silent = true })
 keymap.set("i", "<C-A>", "<ESC>A")
+keymap.set("i", "<C-X>", "<ESC>:bnext<CR>", { desc = "next buffer", silent = true, noremap = true })
+keymap.set("i", "<C-Z>", "<ESC>:bprevious<CR>", { desc = "prev buffer", silent = true, noremap = true })
 
 -- ---------- 视觉模式 ---------- ---
 -- 单行或多行移动

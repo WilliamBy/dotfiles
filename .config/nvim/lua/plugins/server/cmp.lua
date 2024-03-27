@@ -1,38 +1,30 @@
--- 自动补全相关（nvim-cmp, luasnip）
-local types = require("cmp.types")
-local str = require("cmp.utils.str")
-local neogen = require("neogen")
--- 1. 导出补丁：Add additional capabilities supported by nvim-cmp
-M = {}
-M.capabilities = require("cmp_nvim_lsp").default_capabilities()
-
--- 2. setup luasnip
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
+-- Auto Completion
+local types_ok, types = pcall(require, "cmp.types")
+local str_ok, str = pcall(require, "cmp.utils.str")
+local cmp_ok, cmp = pcall(require, "cmp")
+local neogen_ok, neogen = pcall(require, "neogen")
+local cmp_autopairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+local luasnip_ok, luasnip = pcall(require, "luasnip")
+if not (types_ok and str_ok and cmp_ok and neogen_ok and cmp_autopairs_ok and luasnip_ok) then
 	return
 end
 
+--  Add additional capabilities supported by nvim-cmp
+M.capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+-- luasnip config
 -- 从 runtimepath 加载预定义VSC风格的snippets库
 -- （事实上加载了 friendly-snippets.nvim 定义的snippet）
 require("luasnip.loaders.from_vscode").lazy_load()
 -- 加载自定义snippets
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/snippets" })
 
--- 3. setup neogen
-neogen.setup({ snippet_engine = "luasnip" })
-
--- 4. setup cmp
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-	return
-end
-
+-- setup cmp
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
--- 为编辑页面配置自动补全
 cmp.setup({
 	window = {
 		completion = {
@@ -111,6 +103,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
+        { name = "doxygen" },
 	}, {
 		{ name = "buffer" },
 	}),
@@ -142,5 +135,11 @@ cmp.setup.filetype("DressingInput", {
 		cmp.config.sources({ name = "path" }),
 	},
 })
+
+-- autopairs after method or function
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 return M
