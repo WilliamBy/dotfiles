@@ -36,7 +36,7 @@ M = {
 		end
 	end,
 
-    --- 判断是否为大文件
+	--- 判断是否为大文件
 	is_big_buf = function(bufnr)
 		local max_filesize = 100 * 1024 -- 100 KB
 		local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
@@ -45,6 +45,15 @@ M = {
 		else
 			return false
 		end
+	end,
+
+	get_not_so_big_bufnrs = function()
+		local buf = vim.api.nvim_get_current_buf()
+		local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
+		if byte_size > 1024 * 1024 then -- 1 Megabyte max
+			return {}
+		end
+		return { buf }
 	end,
 }
 

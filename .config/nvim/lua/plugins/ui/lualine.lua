@@ -50,8 +50,10 @@ require("lualine").setup({
 				for k, v in pairs(lspc_list) do
 					if k == 1 then
 						fmtstr = v.name
+                    elseif v.name == "copilot" then
+                        break
 					else
-						fmtstr = fmtstr .. "," .. v.name
+						fmtstr = fmtstr .. "+" .. v.name
 					end
 				end
 				return fmtstr == "" and "" or " " .. fmtstr

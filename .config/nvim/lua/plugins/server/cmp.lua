@@ -5,12 +5,23 @@ local cmp_ok, cmp = pcall(require, "cmp")
 local neogen_ok, neogen = pcall(require, "neogen")
 local cmp_autopairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
-if not (types_ok and str_ok and cmp_ok and neogen_ok and cmp_autopairs_ok and luasnip_ok) then
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if not (types_ok and str_ok and cmp_ok and neogen_ok and cmp_autopairs_ok and luasnip_ok and lspkind_ok) then
 	return
 end
+local utils = require("core.utils")
 
 --  Add additional capabilities supported by nvim-cmp
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+-- Lspkind init and highlight settings
+lspkind.init({
+	symbol_map = {
+		Copilot = "",
+	},
+})
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 -- luasnip config
 -- 从 runtimepath 加载预定义VSC风格的snippets库
@@ -99,13 +110,16 @@ cmp.setup({
 	}),
 
 	-- 补全项目来源
-	sources = cmp.config.sources({
+	sources = cmp.config.sources({ -- group_index = 1
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+	}, { -- group_index = 2
 		{ name = "path" },
-        { name = "doxygen" },
-	}, {
-		{ name = "buffer" },
+		{ name = "doxygen" },
+	}, { -- group_index = 3
+		{ name = "buffer", option = {
+			get_bufnrs = utils.get_not_so_big_bufnrs,
+		} },
 	}),
 })
 
@@ -114,7 +128,9 @@ cmp.setup({
 cmp.setup.cmdline({ "/", "?" }, {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
-		{ name = "buffer" },
+		{ name = "buffer", option = {
+			get_bufnrs = utils.get_not_so_big_bufnrs,
+		} },
 	},
 })
 
@@ -132,14 +148,16 @@ cmp.setup.cmdline(":", {
 -- tip：查看当前buffer的filetype —— `:lua =vim.bo.filetype`
 cmp.setup.filetype("DressingInput", {
 	sources = {
-		cmp.config.sources({ name = "path" }),
+		cmp.config.sources(
+			{ { name = "path" } },
+			{ { name = "buffer", option = {
+				get_bufnrs = utils.get_not_so_big_bufnrs(),
+			} } }
+		),
 	},
 })
 
 -- autopairs after method or function
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 return M

@@ -4,6 +4,7 @@ require("core.options")
 require("core.keymaps")
 require("core.utils")
 require("core.lazy")
+require("core.filetype")
 require("plugins.server.whichkey")
 
 -- 配置

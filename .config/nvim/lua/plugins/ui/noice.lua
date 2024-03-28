@@ -142,7 +142,7 @@ require("noice").setup({
 			help = {
 				title = " Help ",
 				pattern = "^:%s*he?l?p?%s+",
-				icon = "",
+				icon = "",
 				view = "cmdline_popup",
 				opts = {
 					position = {
@@ -155,10 +155,10 @@ require("noice").setup({
 					},
 					border = {
 						style = "rounded",
-						highlight = "BufferCurrentTarget",
+						highlight = "BufferCurrentINFO",
 					},
 				},
-				icon_hl_group = "BufferCurrentTarget",
+				icon_hl_group = "BufferCurrentINFO",
 			},
 			input = {}, -- Used by input()
 			-- lua = false, -- to disable a format, set to `false`

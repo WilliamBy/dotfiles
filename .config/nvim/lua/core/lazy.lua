@@ -137,16 +137,17 @@ local plugins = {
 		dependencies = {
 			{
 				"onsails/lspkind.nvim",
-                "hrsh7th/cmp-nvim-lsp", -- cmp & lsp 桥梁
-                {
-                    "L3MON4D3/LuaSnip",
-                    -- follow latest release.
-                    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-                    -- install jsregexp (optional!).
-                    build = "make install_jsregexp",
-                },
+				"hrsh7th/cmp-nvim-lsp", -- cmp & lsp 桥梁
+				{
+					"L3MON4D3/LuaSnip",
+					-- follow latest release.
+					version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+					-- install jsregexp (optional!).
+					build = "make install_jsregexp",
+				},
 				"hrsh7th/cmp-path", -- 补全源：路径
 				"hrsh7th/cmp-cmdline", -- 补全源：命令行
+				"hrsh7th/cmp-buffer",
 				{
 					"paopaol/cmp-doxygen",
 					dependencies = {
