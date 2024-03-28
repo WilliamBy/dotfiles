@@ -76,4 +76,4 @@ require("formatter").setup({
 })
 
 -- keymap
-vim.keymap.set("n", "<leader>bf", ":FormatLock<CR>", { silent = true }) -- 格式化
+vim.keymap.set("n", "<leader>bf", "<cmd>Format<CR>", { silent = true }) -- 格式化

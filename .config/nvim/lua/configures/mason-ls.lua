@@ -22,6 +22,7 @@ local linter = {
 	"shellcheck",
 	"alex",
     "eslint_d",
+    "commitlint"
 }
 local formatter = {
 	"clang-format",

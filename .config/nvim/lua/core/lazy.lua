@@ -148,6 +148,7 @@ local plugins = {
 				"hrsh7th/cmp-path", -- 补全源：路径
 				"hrsh7th/cmp-cmdline", -- 补全源：命令行
 				"hrsh7th/cmp-buffer",
+                "davidsierradz/cmp-conventionalcommits",
 				{
 					"paopaol/cmp-doxygen",
 					dependencies = {

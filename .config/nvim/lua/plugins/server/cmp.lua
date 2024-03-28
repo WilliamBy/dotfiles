@@ -156,6 +156,9 @@ cmp.setup.filetype("DressingInput", {
 		),
 	},
 })
+cmp.setup.filetype("gitcommit", {
+	sources = cmp.config.sources({ { name = "conventionalcommits" } }, { { name = "buffer" } }),
+})
 
 -- autopairs after method or function
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
