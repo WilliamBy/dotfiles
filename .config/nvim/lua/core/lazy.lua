@@ -139,16 +139,20 @@ local plugins = {
 				"onsails/lspkind.nvim",
 				"hrsh7th/cmp-nvim-lsp", -- cmp & lsp 桥梁
 				{
-					"L3MON4D3/LuaSnip",
-					-- follow latest release.
-					version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-					-- install jsregexp (optional!).
-					build = "make install_jsregexp",
+					"saadparwaiz1/cmp_luasnip", -- luasnip & cmp 桥梁
+					dependencies = {
+						"L3MON4D3/LuaSnip",
+						-- follow latest release.
+						version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+						-- install jsregexp (optional!).
+						build = "make install_jsregexp",
+						dependencies = { "rafamadriz/friendly-snippets" },
+					},
 				},
 				"hrsh7th/cmp-path", -- 补全源：路径
 				"hrsh7th/cmp-cmdline", -- 补全源：命令行
 				"hrsh7th/cmp-buffer",
-                "davidsierradz/cmp-conventionalcommits",
+				"davidsierradz/cmp-conventionalcommits",
 				{
 					"paopaol/cmp-doxygen",
 					dependencies = {
@@ -156,7 +160,6 @@ local plugins = {
 						"nvim-treesitter/nvim-treesitter-textobjects",
 					},
 				},
-				"saadparwaiz1/cmp_luasnip", -- luasnip & cmp 桥梁
 			},
 		},
 	},

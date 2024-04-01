@@ -45,6 +45,10 @@ keymap.set({ "n", "v" }, "L", "$", { desc = "line tail", noremap = true })
 keymap.set("n", "<leader>nd", function()
 	utils.toggle_diagnostic(0)
 end, utils.opts("toggle diagnostic"))
+-- 清除 diagnostic 缓存
+keymap.set("n", "<leader>nc", function()
+    vim.diagnostic.reset()
+end, utils.opts("reset diagnostic cache"))
 -- 禁用/触发折行
 keymap.set("n", "<leader>nw", function()
 	vim.opt.wrap = not vim.opt.wrap

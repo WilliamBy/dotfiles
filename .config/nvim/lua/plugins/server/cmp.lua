@@ -112,7 +112,7 @@ cmp.setup({
 	-- 补全项目来源
 	sources = cmp.config.sources({ -- group_index = 1
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
+		{ name = "luasnip", option = { use_show_condition = false } },
 	}, { -- group_index = 2
 		{ name = "path" },
 		{ name = "doxygen" },
