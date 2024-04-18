@@ -38,6 +38,7 @@ require("plugins.server.lint")
 require("plugins.server.neodev")
 require("plugins.server.task")
 require("plugins.server.project")
+require("plugins.server.translate")
 
 -- 编辑功能
 require("plugins.editor.comment")
@@ -49,3 +50,51 @@ require("plugins.nav.treeutils")
 require("plugins.nav.nvim-tree")
 require("plugins.nav.telescope")
 require("plugins.nav.bufdelete")
+
+-- Neovide config
+if vim.g.neovide then
+    vim.o.guifont = "CodeNewRoman Nerd Font,Symbols Nerd Font,WenQuanYi Micro Hei:h12"
+    vim.g.neovide_scroll_animation_length = 0.2
+    vim.g.neovide_scroll_animation_far_lines = 1
+    vim.g.neovide_cursor_animation_length = 0.08
+    vim.g.neovide_refresh_rate = 75
+    vim.g.neovide_padding_top = 3
+    vim.g.neovide_padding_bottom = 3
+    vim.g.neovide_padding_right = 3
+    vim.g.neovide_padding_left = 3
+
+    -- auto IME support
+    local function set_ime(args)
+        if args.event:match("Enter$") then
+            vim.g.neovide_input_ime = true
+        else
+            vim.g.neovide_input_ime = false
+        end
+    end
+
+    local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
+
+    vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
+    group = ime_input,
+    pattern = "*",
+    callback = set_ime
+    })
+
+    vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
+    group = ime_input,
+    pattern = "[/\\?]",
+    callback = set_ime
+    })
+
+    -- scale hotkey
+    vim.g.neovide_scale_factor = 1.0
+    local change_scale_factor = function(delta)
+        vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+    end
+    vim.keymap.set("n", "<C-=>", function()
+        change_scale_factor(1.25)
+    end)
+    vim.keymap.set("n", "<C-->", function()
+        change_scale_factor(1/1.25)
+    end)
+end

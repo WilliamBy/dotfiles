@@ -10,6 +10,7 @@ local lsp = {
 	"gopls", -- golang
 	"marksman", -- markdown
     "denols", -- deno (js, ts, json...)
+    "sqls", -- sql
 }
 local dap = {
 	"codelldb",

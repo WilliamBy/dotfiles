@@ -19,6 +19,12 @@ local plugins = {
 	"MunifTanjim/nui.nvim", -- UI库
 	{
 		"karb94/neoscroll.nvim",
+		enabled = function()
+			if vim.g.neovide then
+				return false
+			end
+			return true
+		end,
 		config = function()
 			require("neoscroll").setup({})
 		end,
@@ -255,6 +261,7 @@ local plugins = {
 	},
 
 	"wakatime/vim-wakatime",
+	{ "niuiic/translate.nvim", dependencies = { "niuiic/core.nvim" } },
 
 	-- language specific
 	{

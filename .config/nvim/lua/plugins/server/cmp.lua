@@ -92,7 +92,18 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-
+		["<C-j>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif check_backspace() then
+				fallback()
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
+		}),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -107,12 +118,22 @@ cmp.setup({
 			"i",
 			"s",
 		}),
+		["<C-k>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
+		}),
 	}),
 
 	-- 补全项目来源
 	sources = cmp.config.sources({ -- group_index = 1
-		{ name = "nvim_lsp" },
 		{ name = "luasnip", option = { use_show_condition = false } },
+        { name = "nvim_lsp" },
 	}, { -- group_index = 2
 		{ name = "path" },
 		{ name = "doxygen" },

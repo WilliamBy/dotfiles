@@ -3,6 +3,7 @@ local builtin = require("telescope.builtin")
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
 local utils = require("core.utils")
+local custom_actions = require("configures.telescope-actions")
 -- extensions
 telescope.load_extension("fzf") -- 使用 fzf 模糊搜索
 telescope.extensions.asynctasks.all()
@@ -32,6 +33,17 @@ telescope.setup({
 				},
 				n = {
 					["d"] = { actions.delete_buffer, type = "action", utils.opts("delete_buffer") },
+				},
+			},
+		},
+		find_files = {
+			mappings = {
+				i = {
+					["<C-o>"] = {
+						custom_actions.multi_selection_open,
+						type = "action",
+						utils.opts("multi_selection_open"),
+					},
 				},
 			},
 		},

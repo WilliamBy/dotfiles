@@ -55,6 +55,17 @@ M = {
 		end
 		return { buf }
 	end,
+
+	--- buf toggle lsp
+	toggle_lsp_client = function()
+		local buf = vim.api.nvim_get_current_buf()
+		local clients = vim.lsp.get_active_clients({ bufnr = buf })
+		if not vim.tbl_isempty(clients) then
+			vim.cmd("LspStop")
+		else
+			vim.cmd("LspStart")
+		end
+	end,
 }
 
 return M

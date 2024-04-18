@@ -37,3 +37,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/
 
 # zoxide feature
 source /home/w1_liamby/.bashrc.d/zoxide.bashrc
+
+# set Qt config
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_STYLE_OVERRIDE=breeze
