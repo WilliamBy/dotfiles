@@ -43,7 +43,7 @@ set cmdheight=1
 set encoding=utf8
 
 set number
-" set relativenumber
+set relativenumber
 
 set tabstop=4
 set shiftwidth=4

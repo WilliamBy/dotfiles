@@ -50,6 +50,7 @@ require("plugins.nav.treeutils")
 require("plugins.nav.nvim-tree")
 require("plugins.nav.telescope")
 require("plugins.nav.bufdelete")
+require("plugins.nav.illuminate")
 
 -- Neovide config
 if vim.g.neovide then

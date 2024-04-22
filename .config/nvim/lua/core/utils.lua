@@ -26,6 +26,15 @@ M = {
 		return { desc = descripton, silent = true, noremap = true }
 	end,
 
+    --- 常用keymap
+    ---@param mode string | string[]
+    ---@param lhs string
+    ---@param rhs string | function
+    ---@param descripton string
+    keyset = function (mode, lhs, rhs, descripton)
+        vim.keymap.set(mode, lhs, rhs, { desc = descripton, silent = true, noremap = true })
+    end,
+
 	--- 触发诊断
 	---@param bufrn integer buffer order: 0 for current buffer, nil for all buffers
 	toggle_diagnostic = function(bufrn)

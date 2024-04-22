@@ -101,7 +101,12 @@ local plugins = {
 		config = function()
 			require("nvim-dap-virtual-text").setup()
 		end,
-		dependencies = { { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" } },
+		dependencies = { { "mfussenegger/nvim-dap" }, { "nvim-treesitter/nvim-treesitter" } },
+	},
+	{
+		"RRethy/vim-illuminate",
+		-- event = "LspAttach"
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 
 	-- lsp & mason
@@ -185,15 +190,7 @@ local plugins = {
 		end,
 	},
 	"phaazon/hop.nvim", -- nvim easy motion
-	{
-		"okuuva/auto-save.nvim",
-		cmd = "ASToggle", -- optional for lazy loading on command
-		event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
-		opts = {
-			-- your config goes here
-			-- or just leave it empty :)
-		},
-	},
+	"pocco81/auto-save.nvim",
 
 	-- DAP
 	{

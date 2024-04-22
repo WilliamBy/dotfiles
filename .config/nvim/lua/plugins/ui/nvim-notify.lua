@@ -23,7 +23,7 @@ notify.setup({
 	-- on_close = function() end,
 	render = "default",
 	stages = "fade_in_slide_out",
-	timeout = 10000,
+	timeout = 8000,
 	top_down = true,
 })
 

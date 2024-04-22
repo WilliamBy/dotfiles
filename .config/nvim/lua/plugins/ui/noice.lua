@@ -352,33 +352,42 @@ require("noice").setup({
 	---@type NoiceRouteConfig[]
 	routes = {
 		{
-			filter = { event = "msg_showmode" },
+			filter = {
+				any = {
+					{ event = "msg_showmode" },
+					{ event = "msg_show", find = "AutoSave" },
+					{ event = "msg_show", find = "lines moved" },
+					{ event = "msg_show", find = "lines indented" },
+				},
+			},
 			opts = { skip = true },
 		},
 		{
 			view = "mini",
 			filter = {
 				any = {
-					{ event = "msg_show", find = "written" },
-					{ event = "msg_show", find = "yanked" },
-					{ event = "msg_show", find = "fewer line" },
-					{ event = "msg_show", find = "more line" },
-					{ event = "msg_show", find = "lines moved" },
-					{ event = "msg_show", find = "lines indented" },
+                    { event = "msg_show", find = "yanked" },
+                    { event = "msg_show", find = "fewer line" },
+                    { event = "msg_show", find = "more line" },
 					{ event = "msg_show", find = "Hop " },
-					{ event = "msg_show", find = "AutoSave" },
+					{ event = "msg_show", find = "change; before" },
+					{ event = "msg_show", find = "Pattern not found" },
+					{ event = "msg_show", find = "[w]" },
 				},
 			},
 		},
-		-- {
-		-- 	view = "messages", -- external command filter
-		-- 	filter = { cmdline = "^:%s*!" },
-		-- },
+		{
+			view = "split", -- external command filter
+			filter = { cmdline = "^:%s*!" },
+		},
 	}, --- @see section on routes
 	---@type table<string, NoiceFilter>
 	status = {}, --- @see section on statusline components
 	---@type NoiceFormatOptions
 	format = {}, --- @see section on formatting
 })
+
+--- 短消息 refer to ":h shortmess"
+vim.o.shortmess = "filnxtToOFsIw"
 
 vim.keymap.set("n", "<leader>nl", "<cmd>Noice last<cr>", { silent = true, noremap = true, desc = "last noice" })

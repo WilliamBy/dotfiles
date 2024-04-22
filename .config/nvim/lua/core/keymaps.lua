@@ -21,11 +21,17 @@ keymap.set("n", "<leader>wq", "<C-w>q") -- 删除窗口
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "no highlight", silent = true, noremap = true })
 
+-- 切换自动保存
+utils.keyset("n", "<leader>na", "<cmd>ASToggle<cr>", "toggle autosave")
+
 -- 切换buffer
 keymap.set({ "n", "i" }, "<C-l>", "<cmd>bnext<CR>", { desc = "next buffer", silent = true, noremap = true })
 keymap.set({ "n", "i" }, "<C-h>", "<cmd>bprevious<CR>", { desc = "prev buffer", silent = true, noremap = true })
 -- 保存buffer
-keymap.set("n", "<leader>bw", ":w<CR>", { desc = "save buffer", silent = true, noremap = true })
+keymap.set("n", "<leader>bw", "<cmd>w<CR>", { desc = "save buffer", silent = true, noremap = true })
+
+-- 切换自动高亮
+utils.keyset("n", "<leader>ni", "<cmd>IlluminateToggle<cr>", "toggle illuminate")
 
 -- 导航
 keymap.set("n", "zk", "H", { desc = "viewport top", noremap = true })
@@ -43,8 +49,8 @@ keymap.set("n", "<leader>nc", function()
 end, utils.opts("reset diagnostic cache"))
 -- 禁用/触发折行
 keymap.set("n", "<leader>nw", function()
-	vim.opt.wrap = not vim.opt.wrap
-end, utils.opts("wrap/breakline"))
+    vim.wo.wrap = not vim.wo.wrap
+end, utils.opts("toggle wrap"))
 
 -- 导航
 keymap.set("n", "zk", "H", { desc = "viewport top", noremap = true })
