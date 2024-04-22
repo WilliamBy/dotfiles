@@ -30,8 +30,6 @@ keymap.set({ "n", "i" }, "<C-h>", "<cmd>bprevious<CR>", { desc = "prev buffer", 
 -- 保存buffer
 keymap.set("n", "<leader>bw", "<cmd>w<CR>", { desc = "save buffer", silent = true, noremap = true })
 
--- 切换自动高亮
-utils.keyset("n", "<leader>ni", "<cmd>IlluminateToggle<cr>", "toggle illuminate")
 
 -- 导航
 keymap.set("n", "zk", "H", { desc = "viewport top", noremap = true })
