@@ -79,7 +79,7 @@ bindsym $mod+Return exec warp-terminal
 # lock screen
 bindsym $mod+Ctrl+Shift+l exec i3lock-fancy
 # hibernate
-bindsym $mod+Ctrl+Shift+h exec systemctl hibernate
+# bindsym $mod+Ctrl+Shift+h exec systemctl hibernate
 
 # kill focused window
 bindsym $mod+Shift+q kill
