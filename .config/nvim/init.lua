@@ -99,3 +99,8 @@ if vim.g.neovide then
         change_scale_factor(1/1.25)
     end)
 end
+
+-- Vscode config
+if vim.g.vscode then
+    -- do something
+end

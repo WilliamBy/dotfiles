@@ -1,0 +1,110 @@
+# ~/.config/starship.toml
+
+command_timeout = 500
+
+# Use custom format
+format = '''
+$username$hostname$directory$git_branch$git_status$golang$python$java$env_var
+$character'''
+
+# Wait 30 milliseconds for starship to check files under the current directory.
+scan_timeout = 30
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[username]
+show_always = true
+format = "[#](bold fg:202) [$user]($style) "
+
+[hostname]
+ssh_symbol = ""
+format = "[[$ssh_symbol](fg:red) $hostname]($style) "
+
+[env_var]
+variable = "http_proxy"
+format = "[󰞉](fg:green)"
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+truncation_length = 4
+format = "[](fg:220) [$path]($style)[$read_only]($read_only_style) "
+
+
+[docker_context]
+symbol = "󰡨 "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+pyenv_version_name = false
+detect_files = ['.python-version', 'Pipfile', '__init__.py', 'pyproject.toml', 'requirements.txt',
+    'setup.py', 'tox.ini', 'pyvenv.cfg']
+
+[rlang]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[spack]
+symbol = "🅢 "

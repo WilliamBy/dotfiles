@@ -5,7 +5,7 @@ local lsp = {
 	"clangd", -- c/c++
 	"bashls", -- shell
 	"spectral", -- json & yaml
-	"pylsp", -- python
+	"pyright", -- python
 	"jdtls", -- java
 	"gopls", -- golang
 	"marksman", -- markdown

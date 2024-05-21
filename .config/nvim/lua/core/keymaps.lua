@@ -5,9 +5,6 @@ local keymap = vim.keymap
 local utils = require("core.utils")
 
 keymap.set("i", "jk", "<ESC>")
-keymap.set("i", "<C-s>", "<ESC>:w<CR>", { silent = true })
-keymap.set("i", "<C-a>", "<ESC>A")
-keymap.set("i", "<C-i>", "<ESC>I")
 
 -- 单行或多行移动
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
@@ -17,6 +14,14 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 keymap.set("n", "<leader>wv", "<C-w>v") -- 水平新增窗口
 keymap.set("n", "<leader>wh", "<C-w>s") -- 垂直新增窗口
 keymap.set("n", "<leader>wq", "<C-w>q") -- 删除窗口
+utils.keyset("n", "<C-H>", "<C-W>h", "left window")
+utils.keyset("n", "<C-L>", "<C-W>l", "right window")
+utils.keyset("n", "<C-J>", "<C-W>j", "down window")
+utils.keyset("n", "<C-K>", "<C-W>k", "up window")
+utils.keyset("n", "<C-S-H>", "<C-W>H", "move left window")
+utils.keyset("n", "<C-S-L>", "<C-W>L", "move right window")
+utils.keyset("n", "<C-S-J>", "<C-W>J", "move down window")
+utils.keyset("n", "<C-S-K>", "<C-W>K", "move up window")
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "no highlight", silent = true, noremap = true })
@@ -25,8 +30,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "no highlight", silent = tru
 utils.keyset("n", "<leader>na", "<cmd>ASToggle<cr>", "toggle autosave")
 
 -- 切换buffer
-keymap.set({ "n", "i" }, "<C-l>", "<cmd>bnext<CR>", { desc = "next buffer", silent = true, noremap = true })
-keymap.set({ "n", "i" }, "<C-h>", "<cmd>bprevious<CR>", { desc = "prev buffer", silent = true, noremap = true })
+keymap.set({ "n", "i" }, "<C-N>", "<cmd>BufferLineCycleNext<CR>", { desc = "next buffer", silent = true, noremap = true })
+keymap.set({ "n", "i" }, "<C-P>", "<cmd>BufferLineCyclePrev<CR>", { desc = "prev buffer", silent = true, noremap = true })
+keymap.set({ "n", "i" }, "<C-S-N>", "<cmd>BufferLineMoveNext<CR>", { desc = "move buffer right", silent = true, noremap = true })
+keymap.set({ "n", "i" }, "<C-S-P>", "<cmd>BufferLineMovePrev<CR>", { desc = "move buffer left", silent = true, noremap = true })
 -- 保存buffer
 keymap.set("n", "<leader>bw", "<cmd>w<CR>", { desc = "save buffer", silent = true, noremap = true })
 

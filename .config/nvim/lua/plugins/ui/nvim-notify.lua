@@ -27,4 +27,4 @@ notify.setup({
 	top_down = true,
 })
 
-vim.api.nvim_set_keymap("n", "<leader>nn", "<cmd>lua vim.notify.dismiss()<CR>", {desc = "hide notify", noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>nn", "<cmd>lua require('notify').dismiss()<CR>", {desc = "hide notify", noremap = true, silent = true})
