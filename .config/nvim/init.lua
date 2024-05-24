@@ -54,7 +54,8 @@ require("plugins.nav.illuminate")
 
 -- Neovide config
 if vim.g.neovide then
-    vim.o.guifont = "CodeNewRoman Nerd Font,Symbols Nerd Font,WenQuanYi Micro Hei:h12"
+    -- vim.o.guifont = "CodeNewRoman Nerd Font,Symbols Nerd Font,WenQuanYi Micro Hei:h13"
+    vim.o.guifont = "Maple Mono SC NF,Symbols Nerd Font:h13"
     vim.g.neovide_scroll_animation_length = 0.2
     vim.g.neovide_scroll_animation_far_lines = 1
     vim.g.neovide_cursor_animation_length = 0.08

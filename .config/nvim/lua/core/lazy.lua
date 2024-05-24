@@ -30,7 +30,8 @@ local plugins = {
 		end,
 	},
 	{
-		"folke/tokyonight.nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
 		opts = {},
@@ -108,7 +109,15 @@ local plugins = {
 		-- event = "LspAttach"
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
-
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+		config = true,
+	},
 	-- lsp & mason
 	"nvim-treesitter/nvim-treesitter", -- 语法高亮
 	"williamboman/mason.nvim",
