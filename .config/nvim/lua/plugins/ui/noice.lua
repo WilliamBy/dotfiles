@@ -31,10 +31,8 @@ require("noice").setup({
 					},
 					win_options = {
 						winblend = 0,
-						winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
 					},
 				},
-				icon_hl_group = "BufferCurrentHint",
 			},
 			search_down = {
 				title = " Search Down ",
@@ -57,10 +55,10 @@ require("noice").setup({
 					},
 					win_options = {
 						winblend = 0,
-						winhighlight = "Normal:BufferCurrentWarn,FloatBorder:BufferCurrentWarn",
+						winhighlight = "Normal:AlphaHeaderLabel,FloatBorder:AlphaHeaderLabel",
 					},
 				},
-				icon_hl_group = "BufferCurrentWarn",
+				icon_hl_group = "AlphaHeaderLabel",
 			},
 			search_up = {
 				title = " Search Up ",
@@ -80,14 +78,13 @@ require("noice").setup({
 					},
 					border = {
 						style = "rounded",
-						highlight = "BufferCurrentWarn",
 					},
 					win_options = {
 						winblend = 0,
-						winhighlight = "Normal:BufferCurrentWarn,FloatBorder:BufferCurrentWarn",
+						winhighlight = "Normal:AlphaHeaderLabel,FloatBorder:AlphaHeaderLabel",
 					},
 				},
-				icon_hl_group = "BufferCurrentWarn",
+				icon_hl_group = "AlphaHeaderLabel",
 			},
 			filter = {
 				title = " Filter ",
@@ -109,10 +106,10 @@ require("noice").setup({
 					},
 					win_options = {
 						winblend = 0,
-						winhighlight = "Normal:BufferCurrentHint,FloatBorder:BufferCurrentHint",
+						winhighlight = "Normal:AlphaButtons,FloatBorder:AlphaButtons",
 					},
 				},
-				icon_hl_group = "BufferCurrentHint",
+				icon_hl_group = "AlphaButtons",
 			},
 			lua = {
 				title = " Lua ",
@@ -134,10 +131,10 @@ require("noice").setup({
 					},
 					win_options = {
 						winblend = 0,
-						winhighlight = "Normal:BufferCurrentTarget,FloatBorder:BufferCurrentTarget",
+						winhighlight = "Normal:AlphaHeader,FloatBorder:AlphaHeader",
 					},
 				},
-				icon_hl_group = "BufferCurrentTarget",
+				icon_hl_group = "AlphaHeader",
 			},
 			help = {
 				title = " Help ",
@@ -155,10 +152,13 @@ require("noice").setup({
 					},
 					border = {
 						style = "rounded",
-						highlight = "BufferCurrentINFO",
+					},
+					win_options = {
+						winblend = 0,
+						winhighlight = "Normal:AlphaHeader,FloatBorder:AlphaHeader",
 					},
 				},
-				icon_hl_group = "BufferCurrentINFO",
+				icon_hl_group = "AlphaHeader",
 			},
 			input = {}, -- Used by input()
 			-- lua = false, -- to disable a format, set to `false`
@@ -331,9 +331,9 @@ require("noice").setup({
 	throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
 	---@type NoiceConfigViews
 	views = {
-        split = {
-            enter = true, -- enter split window when open
-        },
+		split = {
+			enter = true, -- enter split window when open
+		},
 		popup = {
 			position = {
 				row = "40%",
