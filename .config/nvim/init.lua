@@ -64,7 +64,7 @@ if vim.g.neovide then
     vim.g.neovide_padding_bottom = 3
     vim.g.neovide_padding_right = 3
     vim.g.neovide_padding_left = 3
-
+    vim.g.neovide_hide_mouse_when_typing = true
     -- auto IME support
     local function set_ime(args)
         if args.event:match("Enter$") then

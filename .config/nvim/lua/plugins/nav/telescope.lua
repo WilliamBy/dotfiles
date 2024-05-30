@@ -73,4 +73,4 @@ end)
 vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", { silent = true }) -- 依赖nvim.notify
 vim.keymap.set("n", "<leader>fp", "<cmd>Telescope projects<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fa", "<cmd>Telescope asynctasks all<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = { "Todo" }, silent = true })
+vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Todo", silent = true })

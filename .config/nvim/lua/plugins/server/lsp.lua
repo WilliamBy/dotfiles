@@ -213,7 +213,7 @@ require("actions-preview").setup({
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<leader>ef", vim.diagnostic.open_float, { desc = { "open float diagnostic" } })
+vim.keymap.set("n", "<leader>ef", vim.diagnostic.open_float, { desc = "open float diagnostic" })
 vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "prev diagnostic" })
 vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "next diagnostic" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "setloclist" })
