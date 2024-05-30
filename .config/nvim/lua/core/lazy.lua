@@ -284,6 +284,18 @@ local plugins = {
 		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	},
+
+	-- external integration
+	{
+		"mikesmithgh/kitty-scrollback.nvim",
+		enabled = true,
+		lazy = true,
+		cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth" },
+		event = { "User KittyScrollbackLaunch" },
+		config = function()
+			require("kitty-scrollback").setup()
+		end,
+	},
 }
 local opts = {} -- 注意要定义这个变量
 
