@@ -79,6 +79,12 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 
+# start a explorer
+bindsym $mod+backslash exec alacritty -e ranger
+
+# start network manager
+bindsym $mod+Shift+N exec alacritty -e nmtui
+
 # lock screen
 bindsym $mod+Ctrl+Shift+l exec i3lock-fancy
 # hibernate

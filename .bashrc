@@ -50,6 +50,8 @@ eval "$(starship init bash)"
 
 # Set default editor
 export EDITOR=nvim
+# Set default terminal
+export TERM=kitty
 
 # Using vim mode for command line edit
 # set -o vi

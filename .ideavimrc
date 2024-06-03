@@ -23,8 +23,8 @@ nnoremap <C-h> <C-w>h
 
 nnoremap <leader>nh :nohl<CR>
 
-nnoremap <C-X> :bnext<CR>
-nnoremap <C-Z> :bprevious<CR>
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprevious<CR>
 nnoremap <leader>bw :w<CR>
 
 """"""""""""""""""""""""""""""
@@ -103,8 +103,8 @@ sethandler <C-E> a:vim
 sethandler <C-F> a:ide
 sethandler <C-G> a:vim
 sethandler <C-H> a:vim
-sethandler <C-I> a:ide
-sethandler <C-J> a:ide
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
 sethandler <C-K> a:vim
 sethandler <C-L> a:vim
 sethandler <C-N> a:vim

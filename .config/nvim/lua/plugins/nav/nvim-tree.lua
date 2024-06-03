@@ -244,9 +244,9 @@ require("nvim-tree").setup({
 				}
 			end,
 		},
-		width = function()
-			return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-		end,
+		-- width = function()
+		-- 	return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+		-- end,
 	},
 
 	on_attach = on_attach,
