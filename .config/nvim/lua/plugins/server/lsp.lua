@@ -27,32 +27,41 @@ require("mason-lspconfig").setup({
 		end,
 
 		-- 独立配置
-		["jdtls"] = function(_)
+		["jdtls"] = function()
 			if vim.bo.filetype ~= "java" then
 				return
 			end
 			require("configures.jdtls-config").setup()
 		end, -- use nvim-jdtls config instead
-		["lua_ls"] = function(server_name)
-			lspconfig[server_name].setup({
-				-- needed by neodev.nvim
+		["lua_ls"] = function()
+			lspconfig.lua_ls.setup({
 				capabilities = sharedCap,
 				settings = { Lua = { completion = { callSnippet = "Replace" } } },
 			})
 		end,
-		["clangd"] = function(server_name)
-			lspconfig[server_name].setup({
+		["clangd"] = function()
+			lspconfig.clangd.setup({
 				capabilities = sharedCap,
-				-- exclude proto file support
+				-- exclude .proto file support
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+			})
+		end,
+		["ltex"] = function()
+			lspconfig.ltex.setup({
+				capabilities = sharedCap,
+				filetypes = { "markdown", "tex" },
+                settings = {
+                    ltex = {
+                        language = "zh-CN"
+                    }
+                }
 			})
 		end,
 	},
 })
 
 -- 3. nvim-lspconfig
--- mason-lspconfig 已经接管了lsp配置，无需再用nvim-lspconfig重复配置
--- 覆盖 mason-lspconfig 的自动配置
+-- mason-lspconfig 之外的lsp配置
 
 -- 4. Lspsaga
 local saga = require("lspsaga")

@@ -85,6 +85,9 @@ bindsym $mod+backslash exec alacritty -e ranger
 # start network manager
 bindsym $mod+Shift+N exec alacritty -e nmtui
 
+# start network manager
+bindsym $mod+Shift+B exec alacritty -e btm
+
 # lock screen
 bindsym $mod+Ctrl+Shift+l exec i3lock-fancy
 # hibernate

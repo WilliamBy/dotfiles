@@ -50,6 +50,7 @@ eval "$(starship init bash)"
 
 # Set default editor
 export EDITOR=nvim
+export NVIM_APPNAME=astronvim
 # Set default terminal
 export TERM=kitty
 
@@ -67,7 +68,7 @@ alias alipan='aliyunpan-go'
 source /home/w1_liamby/.config/broot/launcher/bash/br
 
 # append go bin path
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/go/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/go/bin:/home/w1_liamby/.local/share/coursier/bin
 
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
@@ -79,3 +80,4 @@ source /home/w1_liamby/.bashrc.d/zoxide.bashrc
 # set Qt config
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_STYLE_OVERRIDE=breeze
+

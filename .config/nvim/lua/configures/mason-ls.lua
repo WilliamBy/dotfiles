@@ -8,9 +8,10 @@ local lsp = {
 	"pyright", -- python
 	"jdtls", -- java
 	"gopls", -- golang
-	"marksman", -- markdown
+	"ltex", -- markdown, latex
     "denols", -- deno (js, ts, json...)
     "sqls", -- sql
+    "taplo", -- toml
 }
 local dap = {
 	"codelldb",

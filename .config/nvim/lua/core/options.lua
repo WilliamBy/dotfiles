@@ -1,5 +1,8 @@
 local opt = vim.opt
 Util = {}
+-- local config support (.nvim.lua .nvimrc .exrc)
+opt.exrc = true
+
 -- 行号
 opt.relativenumber = true
 opt.number = true
