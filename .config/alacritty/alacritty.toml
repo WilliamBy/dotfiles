@@ -1,11 +1,11 @@
 import = [ "~/.config/alacritty/catppuccin-mocha.toml", ]
 
 [env]
-TERM = "xterm-256color"
+TERM = "xterm-kitty"
 
 [font]
 normal = { family = "Maple Mono SC NF", style = "Regular" }
-size = 13.0
+size = 14.0
 
 [window]
 padding = { x = 5, y = 5 }

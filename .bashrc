@@ -19,10 +19,11 @@ eval "$(starship init bash)"
     . /usr/share/bash-completion/bash_completion
 
 # zoxide feature
-source ~/.bashrc.d/zoxide.bashrc
+eval "$(zoxide init bash)"
 
 # aliases
 source ~/.aliases
 
 # environment
 export $(envsubst < ~/.env)
+source ~/.bashrc.d/.pathrc
