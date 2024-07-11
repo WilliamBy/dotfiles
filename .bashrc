@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+# source all files in .bashrc.d
+for file in ~/.bashrc.d/*.bashrc; do source "$file"; done
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -23,7 +26,3 @@ eval "$(zoxide init bash)"
 
 # aliases
 source ~/.aliases
-
-# environment
-export $(envsubst < ~/.env)
-source ~/.bashrc.d/.pathrc
