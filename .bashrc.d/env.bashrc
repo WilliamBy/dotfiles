@@ -6,7 +6,14 @@ export http_proxy=http://127.0.0.1:7899
 export all_proxy=http://127.0.0.1:7897
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/.local/share/JetBrains/Toolbox/scripts:/home/w1_liamby/go/bin:/home/w1_liamby/.local/share/coursier/bin
 export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_STYLE_OVERRIDE=breeze
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
 export PATH=$PATH:$GOPATH/bin
-export QT_IM_MODULES="wayland;fcitx;ibus"
+export XCURSOR_THEME=Bibata-Modern-Classic
+export XCURSOR_SIZE=24
+export BROWSER=/usr/bin/microsoft-edge-stable
+export IMSETTINGS_MODULE=fcitx5
+export INPUT_METHOD=fcitx5
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export GLFW_IM_MODULE=ibus
+export XMODIFIERS=@im=fcitx5
