@@ -5,3 +5,4 @@ alias grep='grep --color=auto'
 alias alipan='aliyunpan-go'
 alias svim='sudo -E nvim'
 alias icat='kitten icat'
+alias ranger='source ranger ranger' # ensure change directory after quiting ranger
