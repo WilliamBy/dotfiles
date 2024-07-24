@@ -23,6 +23,3 @@ eval "$(starship init bash)"
 
 # zoxide feature
 eval "$(zoxide init bash)"
-
-# aliases
-source ~/.aliases

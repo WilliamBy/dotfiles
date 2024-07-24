@@ -15,3 +15,4 @@ export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 export GLFW_IM_MODULE=ibus
 export XMODIFIERS=@im=fcitx5
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1

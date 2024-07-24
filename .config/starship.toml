@@ -4,7 +4,7 @@ command_timeout = 1000
 
 # Use custom format
 format = '''
-$username$hostname$directory$git_branch$git_status$golang$python$java$env_var
+$username$hostname$directory$git_branch$git_status$package$lua$golang$python$java$conda$env_var
 $character'''
 
 # Wait 30 milliseconds for starship to check files under the current directory.
@@ -21,8 +21,7 @@ format = "[#](bold fg:202) [$user]($style) "
 ssh_symbol = ""
 format = "[[$ssh_symbol](fg:red) $hostname]($style) "
 
-[env_var]
-variable = "http_proxy"
+[env_var.http_proxy]
 format = "[󰞉](fg:green)"
 
 [aws]
@@ -35,7 +34,8 @@ symbol = " "
 symbol = " "
 
 [conda]
-symbol = " "
+symbol = " "
+ignore_base = false
 
 [dart]
 symbol = " "
@@ -44,7 +44,6 @@ symbol = " "
 read_only = " 󰌾"
 truncation_length = 4
 format = "[](fg:220) [$path]($style)[$read_only]($read_only_style) "
-
 
 [docker_context]
 symbol = "󰡨 "
@@ -94,8 +93,17 @@ symbol = " "
 [python]
 symbol = " "
 pyenv_version_name = false
-detect_files = ['.python-version', 'Pipfile', '__init__.py', 'pyproject.toml', 'requirements.txt',
-    'setup.py', 'tox.ini', 'pyvenv.cfg']
+detect_files = [
+    '.python-version',
+    'Pipfile',
+    '__init__.py',
+    'pyproject.toml',
+    'requirements.txt',
+    'setup.py',
+    'tox.ini',
+    'pyvenv.cfg',
+]
+detect_folders = ['pyvenv']
 
 [rlang]
 symbol = " "
