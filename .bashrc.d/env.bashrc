@@ -1,9 +1,8 @@
 export LC_ALL=en_US.UTF-8
+if which nvim >/dev/null 2>&1; then
 export EDITOR=nvim
+fi
 export ALIYUNPAN_CONFIG_DIR=/home/w1_liamby/.config/aliyunpan.cfg
-export https_proxy=http://127.0.0.1:7899
-export http_proxy=http://127.0.0.1:7899
-export all_proxy=http://127.0.0.1:7897
 export QT_QPA_PLATFORMTHEME=qt5ct
 export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
 export XCURSOR_THEME=Bibata-Modern-Classic
