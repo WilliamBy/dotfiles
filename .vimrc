@@ -20,11 +20,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+nnoremap <C-p> gT
+nnoremap <C-n> gt
 
 nnoremap <leader>nh :nohl<CR>
 
-nnoremap <C-X> :bnext<CR>
-nnoremap <C-Z> :bprevious<CR>
 nnoremap <leader>bw :w<CR>
 
 """"""""""""""""""""""""""""""
@@ -44,6 +44,7 @@ set encoding=utf8
 
 set number
 set relativenumber
+set paste
 
 set tabstop=4
 set shiftwidth=4
@@ -67,6 +68,7 @@ set ignorecase
 set smartcase
 
 set clipboard^=unnamed,unnamedplus
+set paste
 
 " Sets cursor styles
 " Block in normal, line in insert, underline in replace
