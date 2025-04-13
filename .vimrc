@@ -1,3 +1,7 @@
+""""""""""""""""""""""""""""""
+" => Keybindings
+""""""""""""""""""""""""""""""
+
 let mapleader=" "
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -28,7 +32,7 @@ nnoremap <leader>nh :nohl<CR>
 nnoremap <leader>bw :w<CR>
 
 """"""""""""""""""""""""""""""
-" => User Interface
+" => General
 """"""""""""""""""""""""""""""
 " Linux has termguicolors but it ruins the colors...
 set termguicolors
@@ -44,7 +48,7 @@ set encoding=utf8
 
 set number
 set relativenumber
-set paste
+" set paste
 
 set tabstop=4
 set shiftwidth=4
@@ -68,13 +72,16 @@ set ignorecase
 set smartcase
 
 set clipboard^=unnamed,unnamedplus
-set paste
 
 " Sets cursor styles
 " Block in normal, line in insert, underline in replace
 let &t_SI = "\e[6 q"
 let &t_SR = "\e[4 q"
 let &t_EI = "\e[2 q"
+
+""""""""""""""""""""""""""""""
+" => Optional
+""""""""""""""""""""""""""""""
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
