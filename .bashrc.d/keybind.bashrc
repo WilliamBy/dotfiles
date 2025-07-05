@@ -19,3 +19,13 @@ ai_gen_cmd() {
     READLINE_POINT=0
 }
 bind -x '"\C-g": ai_gen_cmd'
+
+bind -x '"\C-l": tmux-attach'
+
+fuzzy_find_dir() {
+    command -v fzf > /dev/null 2>&1 || { echo "Can't find fzf command"; exit 1; }
+    TARGET=`find ./ | fzf`
+    READLINE_LINE="${READLINE_LINE}${TARGET}"
+    READLINE_POINT=`echo ${#TARGET}+${READLINE_POINT} | bc`
+}
+bind -x '"\C-j": fuzzy_find_dir'
